@@ -1,0 +1,25 @@
+#dateInput {
+    display: flex;
+    flex-direction: column;
+}
+
+#conceptsInput {
+    display: flex;
+    flex-direction: column;
+}
+
+#entryInput {
+    display: flex;
+    flex-direction: column;
+}
+
+#moodInput {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.inputResizable {
+    resize: both;
+    overflow: scroll;
+}
