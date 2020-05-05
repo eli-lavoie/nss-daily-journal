@@ -1,26 +1,38 @@
 const journalEntry = {
-    Date: "",
-    Concepts: "",
-    Entry: "",
-    Mood: "",
+    date: "",
+    concepts: "",
+    entry: "",
+    mood: "",
 }
 
-let listOfEntries = []
+let listOfEntries = [
+    {
+        date: "4/17/2020",
+        concepts: "JS Arrays and Objects",
+        entry: "Today we covered javascript objects and arrays, and talked about how objects can store various different attributes of a specific thing, such as this journal entry having multiple different parameters. We also talked about how arrays can store multiple objects, such as the listOfEntries array containing multiple journal entries.",
+        mood: "OK",
+    },
+    {
+        date: "4/21/2020",
+        concepts: "single responsibility principle",
+        entry: "Today we discussed the single responsibility principle, which talks about how we should make our code to have 'one job' so to speak. This allows us to split our javascript across multiple files for easier document management, as well as ensures that our code works as efficiently as possible.",
+        mood: "Happy",
+}]
 
-listOfEntries.push(journalEntry)
+let journalEntriesContainer = document.getElementsByClassName("entryLog")
 
-const JournalEntry01 = {
-    Date: "4/17/2020",
-    Concepts: "JS Arrays and Objects",
-    Entry: "Today we covered javascript objects and arrays, and talked about how objects can store various different attributes of a specific thing, such as this journal entry having multiple different parameters. We also talked about how arrays can store multiple objects, such as the listOfEntries array containing multiple journal entries.",
-    Mood: "OK",
+const makeJournalEntryComponent = () => {
+    return `
+        <div class="entry">
+            <h2 class="date">Test</h2>
+            <h1 class="concepts">Test</h1>
+            <p class="entry">Test</p>
+            <p class="mood">Test</p>
+        </div>
+            `
 }
 
-const JournalEntry02 = {
-    Date: "4/21/2020",
-    Concepts: "single responsibility principle",
-    Entry: "Today we discussed the single responsibility principle, which talks about how we should make our code to have 'one job' so to speak. This allows us to split our javascript across multiple files for easier document management, as well as ensures that our code works as efficiently as possible.",
-    Mood: "Happy",
+for (entry of listOfEntries){
+    let renderedJournalEntry = makeJournalEntryComponent(entry)
+    journalEntriesContainer.innerHTML += renderedJournalEntry
 }
-listOfEntries.push(JournalEntry01)
-listOfEntries.push(JournalEntry02)
