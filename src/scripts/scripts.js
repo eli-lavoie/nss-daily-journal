@@ -1,3 +1,5 @@
+console.log("Shit works")
+
 const journalEntry = {
     date: "",
     concepts: "",
@@ -19,20 +21,27 @@ let listOfEntries = [
         mood: "Happy",
 }]
 
-let journalEntriesContainer = document.getElementsByClassName("entryLog")
-
-const makeJournalEntryComponent = () => {
+let journalEntriesContainer = document.querySelector(".entryLog")
+const makeJournalEntryComponent = (date, concepts, entry, mood) => {
     return `
         <div class="entry">
-            <h2 class="date">Test</h2>
-            <h1 class="concepts">Test</h1>
-            <p class="entry">Test</p>
-            <p class="mood">Test</p>
+            <h2 class="date">${date}</h2>
+            <h1 class="concepts">${concepts}</h1>
+            <p class="entry">${entry}</p>
+            <p class="mood">${mood}</p>
         </div>
             `
 }
 
-for (entry of listOfEntries){
-    let renderedJournalEntry = makeJournalEntryComponent(entry)
-    journalEntriesContainer.innerHTML += renderedJournalEntry
+const renderJournalToHTML = () => {
+    for (let i = 0; i < listOfEntries.length; i++){
+        let journalDate = listOfEntries[i].date
+        let journalConcepts = listOfEntries[i].concepts
+        let journalEntry = listOfEntries[i].entry
+        let journalMood = listOfEntries[i].mood
+        let renderedJournalEntry = makeJournalEntryComponent(journalDate, journalConcepts, journalEntry, journalMood)
+        journalEntriesContainer.innerHTML += renderedJournalEntry
+    }
 }
+
+renderJournalToHTML()
